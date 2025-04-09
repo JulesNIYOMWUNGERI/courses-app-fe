@@ -1,9 +1,7 @@
+import { LanguageOptions } from "../../utils/types";
 import "./LanguageOption.css"
 
-type LanguageOptionProps = {
-    id: string;
-    name: string;
-    flag: React.ReactNode;
+interface LanguageOptionProps extends LanguageOptions {
     isSelected: boolean;
     onChange: (languageId: string) => void;
 };

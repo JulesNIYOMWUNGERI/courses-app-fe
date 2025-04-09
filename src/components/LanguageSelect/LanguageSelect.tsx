@@ -1,13 +1,15 @@
-import { useState } from 'react';
 import { Languages } from '../../utils/utils'
 import { LanguageOption } from ".."
 
 
 import "./LanguageSelect.css"
 import { LanguageOptions } from '../../utils/types';
+import { useLanguage } from '../../contexts/LanguageProviderContext';
 
 const LanguageSelect = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState<string>("en");
+  const { t } = useLanguage();
+
+  const { selectedLanguage, setSelectedLanguage } = useLanguage();
 
   const handleLanguageChange = (languageId: string) => {
     setSelectedLanguage(languageId);
@@ -15,7 +17,7 @@ const LanguageSelect = () => {
 
   return (
     <div className="language-container">
-      <span className='title'>LANGUAGE</span>
+      <span className='title'>{t("language")}</span>
       <div className="language-box">
         {Languages.map((language: LanguageOptions) => (
           <LanguageOption

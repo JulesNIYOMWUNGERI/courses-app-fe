@@ -1,6 +1,6 @@
 import { JSX } from "react";
 
-export type CourseTypes = {
+export type ViewTypes = {
     id: string
     title: string;
     image: string
