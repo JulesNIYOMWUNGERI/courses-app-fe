@@ -55,7 +55,8 @@
     font-size: 0.9rem;
     font-weight: 600;
     padding: 0 1.5em 0.3em 1.5em;
-    line-height: 0.1em;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .user-icon {
@@ -80,6 +81,7 @@
     outline: none;
     border: none;
     background-color: transparent;
+    cursor: pointer;
 }
 
 .separator {
