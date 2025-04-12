@@ -5,6 +5,7 @@ import LanguageOption from "./LanguageOption/LanguageOption";
 import LanguageSelect from "./LanguageSelect/LanguageSelect";
 import UserPanel from "./UserPanel/UserPanel"
 import ViewCard from "./ViewCard/ViewCard"
+import Sidebar from "./Sidebar/Sidebar";
 
 
 
@@ -16,5 +17,6 @@ export {
     LanguageOption,
     LanguageSelect,
     UserPanel,
-    ViewCard
+    ViewCard,
+    Sidebar
 };

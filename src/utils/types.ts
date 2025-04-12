@@ -1,9 +1,10 @@
 import { JSX } from "react";
 
 export type ViewTypes = {
-    id: string
+    id: string;
     title: string;
-    image: string
+    image?: string;
+    path: string;
 }
 
 export type LanguageOptions = {

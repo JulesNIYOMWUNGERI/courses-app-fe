@@ -7,9 +7,13 @@ import { UserPanel } from ".."
 import './Navbar.css'
 import { useLanguage } from '../../contexts/LanguageProviderContext';
 
+type NavbarProps = {
+  sidebarOpen: boolean;
+  setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-const Navbar = () => {
-  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
+
+const Navbar = ({sidebarOpen, setSidebarOpen}: NavbarProps) => {
   const [profileOpen, setProfileOpen] = useState<boolean>(false);
 
   const { t } = useLanguage();
