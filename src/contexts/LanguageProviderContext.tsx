@@ -30,6 +30,7 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
     try {
       return storedLanguage ? JSON.parse(storedLanguage) : "en";
     } catch (error) {
+      console.log(error);
       return "en";
     }
   });
