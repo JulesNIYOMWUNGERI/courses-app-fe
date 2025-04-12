@@ -1,4 +1,4 @@
-import { LanguageOptions } from "../../utils/types";
+import { LanguageOptions } from "../../../utils/types";
 import "./LanguageOption.css"
 
 interface LanguageOptionProps extends LanguageOptions {
