@@ -2,23 +2,23 @@ import { EnglishFlag, GermanFlag } from "../components";
 import { LanguageOptions, ViewTypes } from "./types";
 
 export const Languages: LanguageOptions[] = [
-    {
-      id: 'en',
-      name: 'English',
-      flag: <EnglishFlag />
-    },
-    {
-      id: 'de',
-      name: 'German',
-      flag: <GermanFlag />
-    }
+  {
+    id: "en",
+    name: "English",
+    flag: <EnglishFlag />,
+  },
+  {
+    id: "de",
+    name: "German",
+    flag: <GermanFlag />,
+  },
 ];
 
 export const Views: ViewTypes[] = [
   {
     id: "0",
     title: "home",
-    path: "/home"
+    path: "/home",
   },
   {
     id: "1",
@@ -31,8 +31,7 @@ export const Views: ViewTypes[] = [
     id: "2",
     title: "courseOverview",
     path: "/course_overview",
-    image:
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
+    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
   },
   {
     id: "3",

@@ -4,58 +4,64 @@ import de from "../locales/de.json";
 import { ReactNode } from "react";
 
 const translations: Record<string, Record<string, string>> = {
-    en,
-    de
-}
+  en,
+  de,
+};
 
 interface LanguageContextProps {
-    selectedLanguage: string;
-    setSelectedLanguage: (language: string) => void;
-    t: (key: string) => string;
+  selectedLanguage: string;
+  setSelectedLanguage: (language: string) => void;
+  t: (key: string) => string;
 }
 
-const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);
-
+const LanguageContext = createContext<LanguageContextProps | undefined>(
+  undefined
+);
 
 interface LanguageProviderProps {
-    children: ReactNode;
+  children: ReactNode;
 }
 
 export const LanguageProvider = ({ children }: LanguageProviderProps) => {
-    const [selectedLanguage, setSelectedLanguage] = useState<string>(() => {
-        const storedLanguage: string | null = localStorage.getItem("selectedLanguage");
-        
-        try {
-            return storedLanguage ? JSON.parse(storedLanguage) : "en"
-        } catch (error) {
-            return "en"
-        }
-    });
+  const [selectedLanguage, setSelectedLanguage] = useState<string>(() => {
+    const storedLanguage: string | null =
+      localStorage.getItem("selectedLanguage");
 
-    useEffect(() => {
-        localStorage.setItem("selectedLanguage", JSON.stringify(selectedLanguage));
-    }, [selectedLanguage]);
+    try {
+      return storedLanguage ? JSON.parse(storedLanguage) : "en";
+    } catch (error) {
+      console.log(error);
+      return "en";
+    }
+  });
 
-    const t = (key: string): string => translations[selectedLanguage][key] || key;
+  useEffect(() => {
+    localStorage.setItem("selectedLanguage", JSON.stringify(selectedLanguage));
+  }, [selectedLanguage]);
 
-    const contextValues = useMemo(() => (
-        { 
-            selectedLanguage, setSelectedLanguage, t 
-        }
-    ), [selectedLanguage, setSelectedLanguage, t]);
+  const t = (key: string): string => translations[selectedLanguage][key] || key;
 
-    return (
-        <LanguageContext.Provider value={contextValues}>
-          {children}
-        </LanguageContext.Provider>
-    );
+  const contextValues = useMemo(
+    () => ({
+      selectedLanguage,
+      setSelectedLanguage,
+      t,
+    }),
+    [selectedLanguage, setSelectedLanguage, t]
+  );
+
+  return (
+    <LanguageContext.Provider value={contextValues}>
+      {children}
+    </LanguageContext.Provider>
+  );
 };
 
 export const useLanguage = (): LanguageContextProps => {
-    const context = useContext(LanguageContext);
+  const context = useContext(LanguageContext);
 
-    if (!context) {
-        throw new Error("useLanguage must be used within a LanguageProvider");
-    }
-    return context;
+  if (!context) {
+    throw new Error("useLanguage must be used within a LanguageProvider");
+  }
+  return context;
 };
