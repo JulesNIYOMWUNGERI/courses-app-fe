@@ -41,3 +41,19 @@ export const Views: ViewTypes[] = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxPDfLiVh__Rhp4b1j9FTiKur67pK7ECEyzA&s",
   },
 ];
+
+export const UserTableColumns = [
+  { header: "User ID", key: "id" },
+  { header: "Firstname", key: "firstName" },
+  { header: "Lastname", key: "lastName" },
+];
+
+export const generateId = () => {
+  const usedIds = new Set<string>();
+  let id;
+  do {
+    id = Math.floor(Math.random() * 1_000_000).toString();
+  } while (usedIds.has(id));
+  usedIds.add(id);
+  return id;
+};

@@ -6,6 +6,10 @@ import LanguageSelect from "./LanguageSelect/LanguageSelect";
 import UserPanel from "./UserPanel/UserPanel";
 import ViewCard from "./ViewCard/ViewCard";
 import Sidebar from "./Sidebar/Sidebar";
+import Table from "./Table/Table";
+import InputField from "./InputField/InputField";
+import UserDialog from "./Dialog/UserDialog/UserDialog";
+import DeleteDialog from "./Dialog/DeleteDialog/DeleteDialog";
 
 export {
   Navbar,
@@ -16,4 +20,8 @@ export {
   UserPanel,
   ViewCard,
   Sidebar,
+  Table,
+  InputField,
+  UserDialog,
+  DeleteDialog
 };
