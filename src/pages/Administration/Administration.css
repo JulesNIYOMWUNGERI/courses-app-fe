@@ -1,0 +1,14 @@
+.admins-container {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 3rem 1.5rem;
+  padding-top: 6.25rem;
+  background-color: whitesmoke;
+  min-height: 100vh;
+}
+
+.admin-title {
+  color: #333;
+  font-weight: 500;
+  font-size: 1.75rem;
+}

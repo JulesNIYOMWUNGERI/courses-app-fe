@@ -2,6 +2,7 @@ import { createBrowserRouter, Navigate, Outlet } from "react-router-dom";
 import { Navbar, Sidebar } from "../components";
 import Home from "../pages/Home/Home";
 import { useState } from "react";
+import Administration from "../pages/Administration/Administration";
 
 
 
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
             {
                 path: '/home',
                 element: <Home />,
+            },
+            {
+              path: "/administration",
+              element: <Administration />,
             },
         ]
       },
