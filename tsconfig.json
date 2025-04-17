@@ -1,7 +1,26 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "es2020",                     // Specify ECMAScript target version
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": false,
+    "skipLibCheck": true,                   // Skip type checking of declaration files
+    "esModuleInterop": true,                // Enable CJS/AMD/UMD style imports
+    "allowSyntheticDefaultImports": true,   // Allow default imports from modules with no default export
+    "strict": true,                         // Enable all strict type checking options
+    "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references
+    "module": "ESNext",
+    "moduleResolution": "node",             // Resolve modules using Node.js style
+    "resolveJsonModule": true,              // Include modules imported with .json extension
+    "noEmit": true,                         // tsc is only for typechecking, vite handles transpiling
+    "jsx": "react-jsx",                     // For React 17+ with TypeScript
+    "noUnusedLocals": true,                 // Report errors on unused locals
+    "noUnusedParameters": true,             // Report errors on unused parameters
+    "experimentalDecorators": true,         // Enable ES decorators support
+    "incremental": false,                   // Disable incremental compilation
+    "noFallthroughCasesInSwitch": true,     // Report errors for fallthrough cases in switch
+    "isolatedModules": true,                // Allow custom transpilation of modules
+    "types": ["vite/client"]
+  },
+  "include": ["src"]
 }

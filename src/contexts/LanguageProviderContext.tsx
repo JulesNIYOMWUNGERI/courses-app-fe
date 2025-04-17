@@ -1,53 +1,57 @@
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
-import en from "../locales/en.json";
-import de from "../locales/de.json";
-import { ReactNode } from "react";
+import {
+  createContext,
+  PropsWithChildren,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
-const translations: Record<string, Record<string, string>> = {
-  en,
-  de,
-};
+import {
+  AppMessages,
+  Language,
+  translations,
+} from "../common/localization/types";
 
 interface LanguageContextProps {
   selectedLanguage: string;
-  setSelectedLanguage: (language: string) => void;
-  t: (key: string) => string;
+  setSelectedLanguage: (language: Language) => void;
+  t: (key: keyof AppMessages) => string;
 }
 
 const LanguageContext = createContext<LanguageContextProps | undefined>(
-  undefined
+  undefined,
 );
 
-interface LanguageProviderProps {
-  children: ReactNode;
-}
+const LANGUAGE_STORAGE_KEY = "selectedLanguage";
 
-export const LanguageProvider = ({ children }: LanguageProviderProps) => {
-  const [selectedLanguage, setSelectedLanguage] = useState<string>(() => {
+export const LanguageProvider = ({ children }: PropsWithChildren) => {
+  const [selectedLanguage, setSelectedLanguage] = useState<Language>(() => {
     const storedLanguage: string | null =
-      localStorage.getItem("selectedLanguage");
+      localStorage.getItem(LANGUAGE_STORAGE_KEY);
 
     try {
       return storedLanguage ? JSON.parse(storedLanguage) : "en";
-    } catch (error) {
-      console.log(error);
+    } catch {
       return "en";
     }
   });
 
-  useEffect(() => {
-    localStorage.setItem("selectedLanguage", JSON.stringify(selectedLanguage));
-  }, [selectedLanguage]);
+  useEffect(() => {}, [selectedLanguage]);
 
-  const t = (key: string): string => translations[selectedLanguage][key] || key;
-
-  const contextValues = useMemo(
+  const contextValues: LanguageContextProps = useMemo(
     () => ({
       selectedLanguage,
-      setSelectedLanguage,
-      t,
+      setSelectedLanguage: (newLanguage: Language) => {
+        setSelectedLanguage(newLanguage);
+        localStorage.setItem(
+          LANGUAGE_STORAGE_KEY,
+          JSON.stringify(selectedLanguage),
+        );
+      },
+      t: (key) => translations[selectedLanguage][key] || key,
     }),
-    [selectedLanguage, setSelectedLanguage, t]
+    [selectedLanguage],
   );
 
   return (

@@ -1,10 +1,11 @@
-import { IoIosArrowBack } from "react-icons/io";
-
 import "./Sidebar.css";
-import { Views } from "../../utils/utils";
-import { ViewTypes } from "../../utils/types";
-import { useLanguage } from "../../contexts/LanguageProviderContext";
+
+import { IoIosArrowBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+
+import { useLanguage } from "../../contexts/LanguageProviderContext";
+import { ViewTypes } from "../../utils/types";
+import { Views } from "../../utils/utils";
 
 type SidebarProps = {
   sidebarOpen: boolean;
@@ -43,7 +44,10 @@ const Sidebar = ({ sidebarOpen, onClick }: SidebarProps) => {
         </ul>
       </aside>
 
-      <div className={`sidebar-overlay ${sidebarOpen ? "show" : ""}`} onClick={onClick} />
+      <div
+        className={`sidebar-overlay ${sidebarOpen ? "show" : ""}`}
+        onClick={onClick}
+      />
     </>
   );
 };
