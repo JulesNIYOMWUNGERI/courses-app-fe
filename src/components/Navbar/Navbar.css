@@ -50,11 +50,17 @@
     box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.5);
 }
 
-.user-panel h3 {
+.user-panel-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 1.5em 0.3em 1.5em;
+}
+
+.user-panel-header h3 {
     color: #000000;
     font-size: 0.9rem;
     font-weight: 600;
-    padding: 0 1.5em 0.3em 1.5em;
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -89,5 +95,15 @@
     height: 1px;
     background-color: #e5e7eb;
     width: 100%;
+}
+
+.user-select {
+    outline: none;
+    border: none;
+    appearance: none;
+    padding-inline: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
 }
 
