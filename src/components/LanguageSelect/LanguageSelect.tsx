@@ -1,16 +1,16 @@
-import { Languages } from "../../utils/utils";
-import { LanguageOption } from "..";
-
 import "./LanguageSelect.css";
-import { LanguageOptions } from "../../utils/types";
+import { LanguageOption } from "..";
+import { Language } from "../../common/localization/types";
 import { useLanguage } from "../../contexts/LanguageProviderContext";
+import { LanguageOptions } from "../../utils/types";
+import { Languages } from "../../utils/utils";
 
 const LanguageSelect = () => {
   const { t } = useLanguage();
 
   const { selectedLanguage, setSelectedLanguage } = useLanguage();
 
-  const handleLanguageChange = (languageId: string) => {
+  const handleLanguageChange = (languageId: Language) => {
     setSelectedLanguage(languageId);
   };
 

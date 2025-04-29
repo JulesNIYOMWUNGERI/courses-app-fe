@@ -1,24 +1,25 @@
-import { useEffect, useRef } from 'react'
-import { LanguageSelect } from ".."
-import { useLanguage } from '../../contexts/LanguageProviderContext'
+import { useEffect, useRef } from "react";
+
+import { LanguageSelect } from "..";
+import { useLanguage } from "../../contexts/LanguageProviderContext";
 
 type UserPanelProps = {
-    onClose: () => void
-}
+  onClose: () => void;
+};
 
 const UserPanel = ({ onClose }: UserPanelProps) => {
   const dropDownRef = useRef<HTMLDivElement | null>(null);
   const { t } = useLanguage();
-  
+
   const handleClickOutside = (e: MouseEvent) => {
     if (
-        dropDownRef.current &&
-        !dropDownRef.current.contains(e.target as Node)
+      dropDownRef.current &&
+      !dropDownRef.current.contains(e.target as Node)
     ) {
-        onClose();
+      onClose();
     }
   };
-    
+
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -36,7 +37,7 @@ const UserPanel = ({ onClose }: UserPanelProps) => {
 
       <button className="logout-button">{t("logOut")}</button>
     </div>
-  )
-}
+  );
+};
 
 export default UserPanel;
