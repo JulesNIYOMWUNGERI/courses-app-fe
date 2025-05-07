@@ -2,7 +2,6 @@ import {
   createContext,
   PropsWithChildren,
   useContext,
-  useEffect,
   useMemo,
   useState,
 } from "react";
@@ -20,7 +19,7 @@ interface LanguageContextProps {
 }
 
 const LanguageContext = createContext<LanguageContextProps | undefined>(
-  undefined,
+  undefined
 );
 
 const LANGUAGE_STORAGE_KEY = "selectedLanguage";
@@ -37,8 +36,6 @@ export const LanguageProvider = ({ children }: PropsWithChildren) => {
     }
   });
 
-  useEffect(() => {}, [selectedLanguage]);
-
   const contextValues: LanguageContextProps = useMemo(
     () => ({
       selectedLanguage,
@@ -46,12 +43,12 @@ export const LanguageProvider = ({ children }: PropsWithChildren) => {
         setSelectedLanguage(newLanguage);
         localStorage.setItem(
           LANGUAGE_STORAGE_KEY,
-          JSON.stringify(selectedLanguage),
+          JSON.stringify(newLanguage)
         );
       },
       t: (key) => translations[selectedLanguage][key] || key,
     }),
-    [selectedLanguage],
+    [selectedLanguage]
   );
 
   return (

@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 
 import { LanguageSelect } from "..";
 import { useLanguage } from "../../contexts/LanguageProviderContext";
+import UserSwitch from "./UserSwitch/UserSwitch";
 
 type UserPanelProps = {
   onClose: () => void;
@@ -27,7 +28,10 @@ const UserPanel = ({ onClose }: UserPanelProps) => {
 
   return (
     <div className="user-panel" ref={dropDownRef}>
-      <h3>{t("welcome")} USER1</h3>
+      <div className="user-panel-header">
+        <h3>{t("welcome")}</h3>
+        <UserSwitch />
+      </div>
 
       <hr className="separator" />
 

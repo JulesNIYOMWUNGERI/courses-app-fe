@@ -7,6 +7,7 @@ import "./Navbar.css";
 
 import { UserPanel } from "..";
 import { useLanguage } from "../../contexts/LanguageProviderContext";
+import { UserProvider } from "../../pages/Administration/user/UserProviderContext";
 
 type NavbarProps = {
   sidebarOpen: boolean;
@@ -43,7 +44,11 @@ const Navbar = ({ sidebarOpen, setSidebarOpen }: NavbarProps) => {
           <FiUser size={35} />
         </button>
 
-        {profileOpen && <UserPanel onClose={handleCloseUserPanel} />}
+        {profileOpen && (
+          <UserProvider>
+            <UserPanel onClose={handleCloseUserPanel} />
+          </UserProvider>
+        )}
       </div>
     </nav>
   );
