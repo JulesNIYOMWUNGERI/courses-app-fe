@@ -1,0 +1,17 @@
+.participant-group-section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.participant-group-container {
+  display: flex;
+  flex-direction: column;
+}
+.checkbox-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
