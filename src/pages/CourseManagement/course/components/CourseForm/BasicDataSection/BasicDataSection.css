@@ -1,0 +1,43 @@
+.basic-data-section {
+  background-color: white;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.basic-data-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+  gap: 1.25rem;
+}
+
+.data-label {
+  display: block;
+  margin-bottom: 0.3125rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.text-input {
+  width: 100%;
+  padding: 0.625rem 0.9375rem;
+  border: 0.0625rem solid #ccc;
+  border-radius: 0.1875rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.text-input:focus {
+  outline: none;
+  border-color: #0275d8;
+  box-shadow: 0 0 0 0.125rem rgba(2, 117, 216, 0.1);
+}
+
+.read-only-value {
+  padding: 0.625rem 0.9375rem;
+  background-color: #f8f8f8;
+  border: 0.0625rem solid #ccc;
+  border-radius: 0.1875rem;
+  font-size: 1rem;
+  color: #333;
+}

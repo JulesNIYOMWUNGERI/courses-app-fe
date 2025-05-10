@@ -1,0 +1,49 @@
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    box-sizing: border-box;
+}
+
+.new-course-btn {
+    padding: 0.7rem 1.3rem;
+    background-color: #0275d8;
+    font-size: 13px;
+    color: #dfdfdf;
+    font-weight: 600;
+    border-radius: 0.2rem;
+    box-shadow: #dfdfdf;
+    border: none;
+    cursor: pointer;
+}
+
+.save-btn {
+    padding: 0.7rem 1.3rem;
+    background-color: #0275d8;
+    font-size: 13px;
+    color: #dfdfdf;
+    font-weight: 600;
+    border-radius: 0.2rem;
+    box-shadow: #dfdfdf;
+    border: none;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    padding: 0.7rem 1.3rem;
+    background-color: #000000;
+    font-size: 13px;
+    color: #dfdfdf;
+    font-weight: 600;
+    border-radius: 0.2rem;
+    box-shadow: #dfdfdf;
+    border: none;
+    cursor: pointer;
+}
+
+.disabled {
+    background-color: #a8a8a857;
+    color: #00000034;
+}
