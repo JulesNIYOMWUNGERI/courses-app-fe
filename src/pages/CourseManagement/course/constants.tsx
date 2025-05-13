@@ -5,13 +5,6 @@ export const departmentOptions = [
   { label: "SAP", value: "sap" },
 ];
 
-export const classificationOptions = [
-  { label: "All", value: "all" },
-  { label: "Technical", value: "technical" },
-  { label: "Soft Skills", value: "softSkills" },
-  { label: "Business", value: "business" },
-];
-
 export const defaultCourseData = [
   {
     id: "a1f4c5d6-1234-4b7c-8a2e-91f2ef1c3a01",

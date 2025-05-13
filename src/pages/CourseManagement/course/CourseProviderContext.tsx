@@ -35,14 +35,7 @@ const CourseManagementContext = createContext<
 export const CourseManagementProvider = ({ children }: PropsWithChildren) => {
   const [courseData, setCourseData] = useState<Course[]>(() => {
     const storedCourses = localStorage.getItem(COURSES_STORAGE_KEY);
-    if (storedCourses) {
-      return JSON.parse(storedCourses);
-    }
-    localStorage.setItem(
-      COURSES_STORAGE_KEY,
-      JSON.stringify(defaultCourseData)
-    );
-    return defaultCourseData;
+    return storedCourses ? JSON.parse(storedCourses) : defaultCourseData;
   });
   const [courseNameFilter, setCourseNameFilter] = useState("");
   const [courseDepartmentFilter, setCourseDepartmentFilter] = useState("");
@@ -62,9 +55,7 @@ export const CourseManagementProvider = ({ children }: PropsWithChildren) => {
             : true;
 
         return matchesDept && matchesClass;
-      },
-      [courseData]
-    );
+      });
 
     return filtered.map((course) => ({
       value: course.id,
@@ -104,9 +95,7 @@ export const CourseManagementProvider = ({ children }: PropsWithChildren) => {
   );
 
   return (
-    <CourseManagementContext.Provider
-      value={contextValue}
-    >
+    <CourseManagementContext.Provider value={contextValue}>
       {children}
     </CourseManagementContext.Provider>
   );

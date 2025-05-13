@@ -1,11 +1,11 @@
 import { useLanguage } from "../../../../../contexts/LanguageProviderContext";
-import { classificationOptions, departmentOptions } from "../../constants";
+import { departmentOptions } from "../../constants";
 import { courseManagementContext } from "../../CourseProviderContext";
 import Dropdown from "../Dropdown/Dropdown";
 import "./FilterSection.css";
 
 const FilterSection = () => {
-  const { t } = useLanguage()
+  const { t } = useLanguage();
   const {
     courseNameFilter,
     courseDepartmentFilter,
@@ -33,6 +33,13 @@ const FilterSection = () => {
     setCourseClassificationFilter(e.target.value);
     setCourseNameFilter("");
   };
+
+  const classificationOptions = [
+    { label: t("all"), value: "all" },
+    { label: t("technical"), value: "technical" },
+    { label: t("softSkills"), value: "softSkills" },
+    { label: t("business"), value: "business" },
+  ];
 
   return (
     <section className="filter-section">

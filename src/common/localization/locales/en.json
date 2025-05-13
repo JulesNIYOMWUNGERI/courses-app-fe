@@ -38,5 +38,6 @@
   "developers": "Developers",
   "managers": "Managers",
   "hr": "HR",
-  "createNewCourse": "Create new course"
+  "createNewCourse": "Create new course",
+  "all": "All"
 }
