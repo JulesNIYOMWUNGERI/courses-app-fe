@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
 import "./UserDialog.css";
+import { useLanguage } from "../../../contexts/LanguageProviderContext";
 import { User } from "../../../pages/Administration/user/types";
 import { useUserContext } from "../../../pages/Administration/user/UserProviderContext";
 import InputField from "../../InputField/InputField";
 import Dialog from "../Dialog";
-import { useLanguage } from "../../../contexts/LanguageProviderContext";
 
 function initForm(user?: User): User {
   if (user) return user;

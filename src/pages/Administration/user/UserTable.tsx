@@ -16,7 +16,11 @@ export default function UserTable() {
   const userTableColumns: Column<User>[] = useMemo(
     () => [
       { key: "id", header: t("userId"), render: (row) => row.id },
-      { key: "firstName", header: t("firstName"), render: (row) => row.firstName },
+      {
+        key: "firstName",
+        header: t("firstName"),
+        render: (row) => row.firstName,
+      },
       { key: "lastName", header: t("lastName"), render: (row) => row.lastName },
       {
         key: "actions",

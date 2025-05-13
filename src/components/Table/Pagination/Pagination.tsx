@@ -1,5 +1,6 @@
 import React from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+
 import "./Pagination.css";
 import { useLanguage } from "../../../contexts/LanguageProviderContext";
 
@@ -29,7 +30,7 @@ const TablePagination: React.FC<TablePaginationProps> = ({
   endIndex,
 }) => {
   const { t } = useLanguage();
-  
+
   return (
     <div className="pagination-controls">
       <div className="rows-per-page">

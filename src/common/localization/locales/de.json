@@ -39,5 +39,7 @@
   "managers": "Leiterinnen",
   "hr": "Personalwesen",
   "createNewCourse": "Neuen Kurs erstellen",
-  "all": "Alle"
+  "all": "Alle",
+  "areYouSureYouWantToDeleteThisCourse": "Sind Sie sicher, dass Sie diesen Kurs löschen möchten",
+  "showAllCourses": "Alle Kurse anzeigen"
 }
