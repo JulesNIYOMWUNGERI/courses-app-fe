@@ -4,17 +4,16 @@ export type InputSize = "small" | "medium" | "large";
 
 interface InputFieldProps {
   id: string;
-  value?: string | number;
+  value?: string;
   label?: string;
   placeholder: string;
   type?: string;
-  defaultValue?: string | number;
   name?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;
-  inputStyles?: string;
-  inputContainerStyles?: string;
-  inputLabelStyles?: string;
+  inputStyles: string;
+  inputContainerStyles: string;
+  inputLabelStyles: string;
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -23,7 +22,6 @@ const InputField: React.FC<InputFieldProps> = ({
   label,
   placeholder,
   type = "text",
-  defaultValue,
   name,
   onChange,
   required = false,
@@ -44,7 +42,6 @@ const InputField: React.FC<InputFieldProps> = ({
         type={type}
         name={name}
         value={value}
-        defaultValue={defaultValue}
         placeholder={placeholder}
         onChange={onChange}
         required={required}

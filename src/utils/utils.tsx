@@ -1,8 +1,6 @@
 import { EnglishFlag, GermanFlag } from "../components";
 import { LanguageOptions, ViewTypes } from "./types";
 
-export const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
-
 export const Languages: LanguageOptions[] = [
   {
     id: "en",
