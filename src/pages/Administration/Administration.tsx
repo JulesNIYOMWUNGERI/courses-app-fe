@@ -1,7 +1,7 @@
-import { useLanguage } from "../../contexts/LanguageProviderContext";
-import "./Administration.css";
 import { UserProvider } from "./user/UserProviderContext";
 import UserTable from "./user/UserTable";
+import { useLanguage } from "../../contexts/LanguageProviderContext";
+import "./Administration.css";
 
 const Administration = () => {
   const { t } = useLanguage();
