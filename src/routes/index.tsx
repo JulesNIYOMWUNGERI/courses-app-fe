@@ -4,7 +4,9 @@ import { createBrowserRouter, Navigate, Outlet } from "react-router-dom";
 import { Navbar, Sidebar } from "../components";
 import Administration from "../pages/Administration/Administration";
 import Home from "../pages/Home/Home";
-import CourseManagement from "../pages/CourseManagement/CourseManagement";
+import CourseLayout from "./CourseLayout";
+import CourseManagement from "../pages/Course/CourseManagement/CourseManagement";
+import CourseOverview from "../pages/Course/CourseOverview/CourseOverview";
 
 const Layout = () => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
@@ -42,8 +44,18 @@ const router = createBrowserRouter([
         element: <Administration />,
       },
       {
-        path: "/course_management",
-        element: <CourseManagement />,
+        path: "/course",
+        element: <CourseLayout />,
+        children: [
+          {
+            path: "course_management",
+            element: <CourseManagement />,
+          },
+          {
+            path: "course_overview",
+            element: <CourseOverview />,
+          },
+        ],
       },
     ],
   },
