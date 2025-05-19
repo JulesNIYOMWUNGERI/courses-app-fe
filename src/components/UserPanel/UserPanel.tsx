@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 
 import { LanguageSelect } from "..";
-import { useLanguage } from "../../contexts/LanguageProviderContext";
 import UserSwitch from "./UserSwitch/UserSwitch";
+import { useLanguage } from "../../contexts/LanguageProviderContext";
 
 type UserPanelProps = {
   onClose: () => void;
