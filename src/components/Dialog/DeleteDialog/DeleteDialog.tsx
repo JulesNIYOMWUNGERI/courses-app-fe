@@ -1,6 +1,6 @@
 import { useLanguage } from "../../../contexts/LanguageProviderContext";
+import { useUserContext } from "../../../contexts/UserProviderContext";
 import { User } from "../../../pages/Administration/user/types";
-import { useUserContext } from "../../../pages/Administration/user/UserProviderContext";
 import Dialog from "../Dialog";
 import "./DeleteDialog.css";
 

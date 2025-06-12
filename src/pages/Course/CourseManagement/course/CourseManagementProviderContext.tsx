@@ -29,8 +29,10 @@ const CourseManagementContext = createContext<
 export const CourseManagementProvider = ({ children }: PropsWithChildren) => {
   const { courseData } = useCourseContext();
   const [courseNameFilter, setCourseNameFilter] = useState<string>("");
-  const [courseDepartmentFilter, setCourseDepartmentFilter] = useState<string>("");
-  const [courseClassificationFilter, setCourseClassificationFilter] = useState<string>("");
+  const [courseDepartmentFilter, setCourseDepartmentFilter] =
+    useState<string>("");
+  const [courseClassificationFilter, setCourseClassificationFilter] =
+    useState<string>("");
 
   const courseNameOptions = useMemo(() => {
     const filtered = courseData.filter((course) => {

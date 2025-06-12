@@ -41,5 +41,21 @@
   "createNewCourse": "Create new course",
   "all": "All",
   "areYouSureYouWantToDeleteThisCourse": "Are you sure you want to delete this course",
-  "showAllCourses": "Show all courses"
+  "showAllCourses": "Show all courses",
+  "detailedOverviewForCourse": "Detailed Overview for course",
+  "participants": "Participants",
+  "files": "Files",
+  "imagePreview": "Image preview",
+  "courseInformation": "Course information",
+  "add": "Add",
+  "newParticipant": "New participant",
+  "looksLikeThereAreNoParticipantYet": "Looks like there are no participants yet.",
+  "looksLikeThereAreNoFilesYet": "Looks like there are no files yet.",
+  "uploadDocument": "Upload document",
+  "uploadPhoto": "Upload photo",
+  "addDocumentsToCourse": "Add documents to course",
+  "addPhotosToCourse": "Add photos to course",
+  "noFile": "No file",
+  "uploadFile": "Upload a file",
+  "dragAndDropYourFileHereOrClickToBrowseYourDevice": "Drag and drop your file here or click to browse your device."
 }

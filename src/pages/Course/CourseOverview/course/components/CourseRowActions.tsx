@@ -7,7 +7,7 @@ import { Course } from "../../../types";
 export default memo(({ course }: { course: Course }) => {
   return (
     <div className="action-buttons">
-      <OpenCourseBtn />
+      <OpenCourseBtn course={course} />
       <DeleteCourseBtn course={course} />
     </div>
   );

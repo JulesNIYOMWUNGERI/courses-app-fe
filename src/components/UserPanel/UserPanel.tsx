@@ -30,6 +30,7 @@ const UserPanel = ({ onClose }: UserPanelProps) => {
     <div className="user-panel" ref={dropDownRef}>
       <div className="user-panel-header">
         <h3>{t("welcome")}</h3>
+
         <UserSwitch />
       </div>
 

@@ -41,5 +41,21 @@
   "createNewCourse": "Neuen Kurs erstellen",
   "all": "Alle",
   "areYouSureYouWantToDeleteThisCourse": "Sind Sie sicher, dass Sie diesen Kurs löschen möchten",
-  "showAllCourses": "Alle Kurse anzeigen"
+  "showAllCourses": "Alle Kurse anzeigen",
+  "detailedOverviewForCourse": "Ausführliche Übersicht zum Kurs",
+  "participants": "Teilnehmer",
+  "files": "Dateien",
+  "imagePreview": "Bildvorschau",
+  "courseInformation": "Kursinformationen",
+  "add": "Hinzufügen",
+  "newParticipant": "Neuer Teilnehmer",
+  "looksLikeThereAreNoParticipantYet": "Es sieht so aus, als ob es noch keine Teilnehmer gibt.",
+  "looksLikeThereAreNoFilesYet": "Es sieht so aus, als ob es noch keine Dateien gibt.",
+  "uploadDocument": "Dokument hochladen",
+  "uploadPhoto": "Foto hochladen",
+  "addDocumentsToCourse": "Dokumente zum Kurs hinzufügen",
+  "addPhotosToCourse": "Fotos zum Kurs hinzufügen",
+  "noFile": "Keine Datei",
+  "uploadFile": "Eine Datei hochladen",
+  "dragAndDropYourFileHereOrClickToBrowseYourDevice": "Datei hierher ziehen oder klicken, um Ihr Gerät zu durchsuchen."
 }

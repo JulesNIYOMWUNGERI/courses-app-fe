@@ -5,10 +5,10 @@ import { useMemo } from "react";
 import CreateUserBtn from "./components/CreateUserBtn";
 import UserRowActions from "./components/UserRowActions";
 import { User } from "./types";
-import { useUserContext } from "./UserProviderContext";
 import { Table } from "../../../components";
 import { Column } from "../../../components/Table/types";
 import { useLanguage } from "../../../contexts/LanguageProviderContext";
+import { useUserContext } from "../../../contexts/UserProviderContext";
 
 export default function UserTable() {
   const { users } = useUserContext();

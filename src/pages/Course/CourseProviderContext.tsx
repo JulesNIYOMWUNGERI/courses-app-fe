@@ -9,12 +9,18 @@ import {
   useState,
 } from "react";
 
-import { COURSES_STORAGE_KEY, defaultCourseData } from "./constants";
-import { Course } from "./types";
+import {
+  COURSES_STORAGE_KEY,
+  defaultCourseData,
+  PARTICIPANT_STORE,
+} from "./constants";
+import { Course, Participant } from "./types";
 
 interface CourseManagementContextType {
   courseData: Course[];
   setCourseData: Dispatch<SetStateAction<Course[]>>;
+  participants: Participant[];
+  setParticipants: Dispatch<SetStateAction<Participant[]>>;
 }
 
 const CourseContext = createContext<CourseManagementContextType | undefined>(
@@ -26,6 +32,14 @@ export const CourseProviderContext = ({ children }: PropsWithChildren) => {
     const storedCourses = localStorage.getItem(COURSES_STORAGE_KEY);
     return storedCourses ? JSON.parse(storedCourses) : defaultCourseData;
   });
+  const [participants, setParticipants] = useState<Participant[]>(() => {
+    const storedParticipants = localStorage.getItem(PARTICIPANT_STORE);
+    return storedParticipants ? JSON.parse(storedParticipants) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem(PARTICIPANT_STORE, JSON.stringify(participants));
+  }, [participants]);
 
   useEffect(() => {
     localStorage.setItem(COURSES_STORAGE_KEY, JSON.stringify(courseData));
@@ -35,8 +49,10 @@ export const CourseProviderContext = ({ children }: PropsWithChildren) => {
     () => ({
       courseData,
       setCourseData,
+      participants,
+      setParticipants,
     }),
-    [courseData],
+    [courseData, participants],
   );
 
   return (

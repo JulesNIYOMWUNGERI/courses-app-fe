@@ -1,4 +1,3 @@
-import { UserProvider } from "./user/UserProviderContext";
 import UserTable from "./user/UserTable";
 import { useLanguage } from "../../contexts/LanguageProviderContext";
 import "./Administration.css";
@@ -8,9 +7,7 @@ const Administration = () => {
   return (
     <main className="admins-container">
       <h1 className="admin-title">{t("administration")}</h1>
-      <UserProvider>
-        <UserTable />
-      </UserProvider>
+      <UserTable />
     </main>
   );
 };

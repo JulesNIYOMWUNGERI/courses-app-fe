@@ -1,16 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
-import { useUserContext } from "../../../pages/Administration/user/UserProviderContext";
+import { useUserContext } from "../../../contexts/UserProviderContext";
+import { AUTHENTICATED_USER_ID } from "../../../utils/utils";
 
-const AUTHENTICATED_USER_ID = "selectedUserId";
 const UserSwitch = () => {
-  const { users } = useUserContext();
-
-  const [selectedUserId, setSelectedUserId] = useState<string>(() => {
-    const storedUserId = localStorage.getItem(AUTHENTICATED_USER_ID);
-
-    return storedUserId ?? users[0]?.id ?? "";
-  });
+  const { users, selectedUserId, setSelectedUserId } = useUserContext();
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const userId = e.target.value;

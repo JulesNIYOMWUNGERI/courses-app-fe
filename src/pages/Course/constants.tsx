@@ -18,3 +18,4 @@ export const defaultCourseData = [
 ];
 
 export const COURSES_STORAGE_KEY = "courses";
+export const PARTICIPANT_STORE = "course_participants";

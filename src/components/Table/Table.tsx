@@ -9,6 +9,7 @@ interface TableProps<T> {
   columns: Column<T>[];
   isLoading?: boolean;
   emptyMessage: string;
+  showPagination?: boolean;
 }
 
 const pagination = {
@@ -21,6 +22,7 @@ const Table = <T extends { id: string }>({
   columns,
   isLoading,
   emptyMessage,
+  showPagination = true,
 }: TableProps<T>) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(pagination.defaultRowsPerPage);
@@ -89,18 +91,20 @@ const Table = <T extends { id: string }>({
         <tbody>{renderBody()}</tbody>
       </table>
 
-      <TablePagination
-        currentPage={currentPage}
-        rowsPerPage={rowsPerPage}
-        totalRows={data.length}
-        rowsPerPageOptions={pagination.rowsPerPageOptions}
-        onRowsPerPageChange={handleRowsPerPageChange}
-        onPrevPage={handlePrevPage}
-        onNextPage={handleNextPage}
-        totalPages={totalPages}
-        startIndex={startIndex}
-        endIndex={endIndex}
-      />
+      {showPagination && (
+        <TablePagination
+          currentPage={currentPage}
+          rowsPerPage={rowsPerPage}
+          totalRows={data.length}
+          rowsPerPageOptions={pagination.rowsPerPageOptions}
+          onRowsPerPageChange={handleRowsPerPageChange}
+          onPrevPage={handlePrevPage}
+          onNextPage={handleNextPage}
+          totalPages={totalPages}
+          startIndex={startIndex}
+          endIndex={endIndex}
+        />
+      )}
     </div>
   );
 };
