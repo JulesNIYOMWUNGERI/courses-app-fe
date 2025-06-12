@@ -39,5 +39,7 @@
   "managers": "Managers",
   "hr": "HR",
   "createNewCourse": "Create new course",
-  "all": "All"
+  "all": "All",
+  "areYouSureYouWantToDeleteThisCourse": "Are you sure you want to delete this course",
+  "showAllCourses": "Show all courses"
 }
