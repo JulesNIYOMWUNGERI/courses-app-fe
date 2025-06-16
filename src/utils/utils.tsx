@@ -3,6 +3,8 @@ import { LanguageOptions, ViewTypes } from "./types";
 
 export const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
+export const AUTHENTICATED_USER_ID = "selectedUserId";
+
 export const Languages: LanguageOptions[] = [
   {
     id: "en",

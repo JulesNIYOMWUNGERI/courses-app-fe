@@ -4,12 +4,29 @@ import CourseRowActions from "./components/CourseRowActions";
 import { Table } from "../../../../components";
 import { Column } from "../../../../components/Table/types";
 import { useLanguage } from "../../../../contexts/LanguageProviderContext";
+import { useUserContext } from "../../../../contexts/UserProviderContext";
 import { useCourseContext } from "../../CourseProviderContext";
 import { Course } from "../../types";
 
-const CourseTable = () => {
-  const { courseData } = useCourseContext();
+interface CourseTableProps {
+  showAllCourses: boolean;
+}
+
+const CourseTable = ({ showAllCourses }: CourseTableProps) => {
   let { t } = useLanguage();
+  const { courseData, participants } = useCourseContext();
+  const { selectedUserId } = useUserContext();
+
+  const currentUserCourses = useMemo(() => {
+    return courseData.filter((course) =>
+      participants.some(
+        (participant) =>
+          participant.courseId === course.id &&
+          participant.userId === selectedUserId,
+      ),
+    );
+  }, [selectedUserId, courseData, participants]);
+
   const courseTableColumns: Column<Course>[] = useMemo(
     () => [
       { key: "name", header: t("courseName"), render: (row) => row.name },
@@ -41,11 +58,16 @@ const CourseTable = () => {
     ],
     [t],
   );
+
   return (
     <Table
-      data={courseData}
+      data={showAllCourses ? courseData : currentUserCourses}
       columns={courseTableColumns}
-      emptyMessage="No courses found yet - please create one."
+      emptyMessage={
+        showAllCourses
+          ? "No courses found yet - please create one."
+          : "No courses found for the current user."
+      }
     />
   );
 };

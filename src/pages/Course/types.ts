@@ -14,3 +14,10 @@ export interface Option {
   label: string;
   value: string;
 }
+
+export interface Participant {
+  id: string;
+  userId: string;
+  name: string;
+  courseId: string;
+}

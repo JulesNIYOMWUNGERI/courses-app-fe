@@ -1,10 +1,17 @@
-import { memo, useState } from "react";
+import { memo } from "react";
 
 import { useLanguage } from "../../../../../contexts/LanguageProviderContext";
 
-const ToggleSwitch = () => {
+interface ToggleSwitchProps {
+  showAllCourses: boolean;
+  setShowAllCourses: (value: boolean) => void;
+}
+
+const ToggleSwitch = ({
+  showAllCourses,
+  setShowAllCourses,
+}: ToggleSwitchProps) => {
   const { t } = useLanguage();
-  const [showAllCourses, setShowAllCourses] = useState(false);
 
   return (
     <div className="toggle-container">

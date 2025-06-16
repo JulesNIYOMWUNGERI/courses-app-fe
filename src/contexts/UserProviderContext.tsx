@@ -9,11 +9,14 @@ import {
   useState,
 } from "react";
 
-import { User } from "./types";
+import { User } from "../pages/Administration/user/types";
+import { AUTHENTICATED_USER_ID } from "../utils/utils";
 
 type UserContextType = {
   users: User[];
   setUsers: Dispatch<SetStateAction<User[]>>;
+  selectedUserId: string;
+  setSelectedUserId: Dispatch<SetStateAction<string>>;
 };
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -33,12 +36,25 @@ export const UserProvider = ({ children }: PropsWithChildren) => {
     localStorage.setItem(userStore, JSON.stringify(defaultUsers));
     return defaultUsers;
   });
+  const [selectedUserId, setSelectedUserId] = useState<string>(() => {
+    const storedUserId = localStorage.getItem(AUTHENTICATED_USER_ID);
+
+    return storedUserId ?? users[0]?.id ?? "";
+  });
 
   useEffect(() => {
     localStorage.setItem(userStore, JSON.stringify(users));
   }, [users]);
 
-  const contextValue = useMemo(() => ({ users, setUsers }), [users]);
+  const contextValue = useMemo(
+    () => ({
+      users,
+      setUsers,
+      selectedUserId,
+      setSelectedUserId,
+    }),
+    [users, selectedUserId],
+  );
 
   return (
     <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
